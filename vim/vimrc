@@ -24,8 +24,8 @@ set scrolloff=5
 " Show current line number
 set number
 
-" Hide buffers instaed of closing them
-set hidde
+" Hide buffers instead of closing them
+set hidden
 " Color scheme
 colorscheme jellybeans
 
