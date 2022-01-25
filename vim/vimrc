@@ -98,12 +98,6 @@ set laststatus=2
 set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
 
 
-"----SWAP AND BACKUP FILES----"
-
-" Move swap and backup files into these directories
-set directory=$HOME/.vim/swp//
-set nobackup
-
 " Directory listing style
 let g:netrw_liststyle = 3
 
