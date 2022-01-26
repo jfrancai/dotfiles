@@ -4,6 +4,25 @@
 set nocompatible
 
 
+"----TEXT RENDERING OPTIONS----"
+
+" Use an encoding that supports Unicode
+set encoding=utf-8
+
+" Reload a file when it is changed from the outside
+set autoread
+
+" Write the file when kwe leave the buffer
+set autowrite
+
+
+"----SWAP AND BACKUP FILE OPTIONS----"
+
+set noswapfile
+set nobackup
+set nowb
+
+
 "----GENERAL CONFIGURATION OPTIONS----" 
 
 " Allow backspacing over indention, line breaks and insertions start
@@ -30,6 +49,9 @@ set hidden
 " Color scheme
 colorscheme jellybeans
 
+" Display command line's tab complete options as a menu
+set wildmenu
+
 " Highlight cursor line
 set cursorline
 
@@ -48,12 +70,10 @@ set title
 " Mouse mode activated
 set mouse=a
 
+" Change style of whitespace characters if set list activated
+set listchars=tab:>─,eol:¬,trail:\ ,nbsp:¤
+set fillchars=vert:│
 
-"----SWAP AND BACKUP FILE OPTIONS----"
-
-set noswapfile
-set nobackup
-set nowb
 
 "----INDENTATIONS OPTIONS----"
 
@@ -65,6 +85,7 @@ set tabstop=4
 
 " Don't wrap lines
 set nowrap
+
 
 "----SEARCH OPTIONS----"
 
@@ -82,12 +103,6 @@ set smartcase
 
 " Double esc auto turn off hlsearch when research is ended
 nnoremap <esc><esc> :silent! nohls<cr>
-
-
-"----TEXT RENDERING OPTIONS----"
-
-" Use an encoding that supports Unicode
-set encoding=utf-8
 
 
 "----STATUS LINE----"
