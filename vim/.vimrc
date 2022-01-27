@@ -142,6 +142,12 @@ set laststatus=2
 " set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
 
 
+"----MAPPINGS----"
+
+" Auto curly braces
+inoremap {<CR> {<CR>}<C-o>O
+
+
 " Directory listing style
 let g:netrw_liststyle = 3
 
