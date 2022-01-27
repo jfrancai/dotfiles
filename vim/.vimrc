@@ -1,3 +1,26 @@
+"----PLUGINS----"
+
+" Install vim-plug if we don't already have it
+" Credit to github.com/captbaritone
+if empty(glob("~/.vim/autoload/plug.vim"))
+    " Ensure all needed directories exist  (Thanks @kapadiamush)
+    execute '!mkdir -p ~/.vim/plugged'
+    execute '!mkdir -p ~/.vim/autoload'
+    " Download the actual plugin manager
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Reload .vimrc and :PlugInstall to install plugins.
+" Go check ~/.vim/autoload/plug.vim for more info on vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Theming
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
 "----GLOBAL SETTINGS----"
 
 " Use Vim settings rather than Vi settings
@@ -111,7 +134,7 @@ nnoremap <esc><esc> :silent! nohls<cr>
 set laststatus=2
 
 " Custom status line
-set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
+" set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
 
 
 " Directory listing style
