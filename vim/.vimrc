@@ -111,6 +111,8 @@ set autoindent
 " Show existing tab with 4 (default value 8) spaces width
 set tabstop=4
 
+set shiftwidth=4
+
 " Don't wrap lines
 set nowrap
 
