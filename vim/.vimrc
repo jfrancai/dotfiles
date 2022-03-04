@@ -83,9 +83,6 @@ set wildmenu
 " Highlight cursor line
 set cursorline
 
-" Line numbers
-set nu
-
 " Enable syntax highlighting
 syntax on
 
@@ -148,6 +145,9 @@ set laststatus=2
 
 " Auto curly braces
 inoremap {<CR> {<CR>}<C-o>O
+
+" Ctrl + j : current word replaced by :registers 0 
+:map <C-j> cw<C-r>0<ESC>
 
 
 " Directory listing style
