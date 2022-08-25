@@ -20,6 +20,7 @@ export DOTFILES="$GHREPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
 export EDITOR=vi
 export VISUAL=vi
+export ZET="$GHREPOS/zet"
 
 # --- history --- #
 
