@@ -1,3 +1,4 @@
 --leak-check=full
 --show-leak-kinds=all
+--track-fds=yes
 -s
