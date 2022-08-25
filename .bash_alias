@@ -1,1 +1,2 @@
 alias hi='echo hello'
+alias norminette='/home/jfrancai/.local/bin/norminette'

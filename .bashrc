@@ -59,10 +59,7 @@ shopt -s dotglob
 
 stty stop undef
 
-PROMPT_LONG=20
-PROMPT_MAX=95
-PROMPT_AT=@
-
+# --- ubuntu default bashrc --- #
 # set variable identifying the chroot yojdsafdsfdfjasd;fqdfwork in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -144,4 +141,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias norminette='/home/jfrancai/.local/bin/norminette'
+# credit : https://rwxrob.tv
