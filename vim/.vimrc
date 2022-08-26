@@ -158,3 +158,8 @@ let g:netrw_browse_split = 4
 
 " Default width for netrw window
 let g:netrw_winsize = 30
+
+"----CTAGS----"
+
+command! MakeTags silent! !ctags -R . &
+autocmd BufWritePost .c,.h silent! !ctags -R . &
