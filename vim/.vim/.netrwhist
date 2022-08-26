@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/jfrancai/repos/github/dotfiles/vim/.vim/.skeleton'
+let g:netrw_dirhist_2='/home/jfrancai/repos/github/dotfiles/.git'
+let g:netrw_dirhist_1='/home/jfrancai/repos/github/dotfiles'
+let g:netrw_dirhist_0='/home/jfrancai/repos/github/dotfiles/scripts'
+let g:netrw_dirhist_9='/home/jfrancai/repos/github/dotfiles'
+let g:netrw_dirhist_8='/home/jfrancai/repos/github/dotfiles/.git/info'
+let g:netrw_dirhist_7='/home/jfrancai/repos/github/dotfiles/.git'
+let g:netrw_dirhist_6='/home/jfrancai/repos/github/dotfiles'
+let g:netrw_dirhist_5='/home/jfrancai/repos/github/dotfiles/.git/logs/refs'
+let g:netrw_dirhist_4='/home/jfrancai/repos'

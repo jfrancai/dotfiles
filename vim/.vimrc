@@ -95,6 +95,9 @@ set title
 " Mouse mode activated
 set mouse=a
 
+" Search down into subfolders
+set path+=**
+
 " Change style of whitespace characters if set list activated
 set listchars=tab:>─,eol:¬,trail:\ ,nbsp:¤
 set fillchars=vert:│
@@ -128,10 +131,6 @@ set ignorecase
 " ...unless you type a capital
 set smartcase
 
-" Double esc auto turn off hlsearch when research is ended
-nnoremap <esc><esc> :silent! nohls<cr>
-
-
 "----STATUS LINE----"
 
 " Always display status line
@@ -146,9 +145,14 @@ set laststatus=2
 " Auto curly braces
 inoremap {<CR> {<CR>}<C-o>O
 
+" Double esc auto turn off hlsearch when research is ended
+nnoremap <esc><esc> :silent! nohls<cr>
+
+" Read template file
+nnoremap ,c :-1read $HOME/.vim/.skeleton/sk.c<CR>3jo
+
 " Ctrl + j : current word replaced by :registers 0 
 :map <C-j> cw<C-r>0<ESC>
-
 
 " Directory listing style
 let g:netrw_liststyle = 3
