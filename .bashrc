@@ -21,6 +21,7 @@ export SCRIPTS="$DOTFILES/scripts"
 export EDITOR=vi
 export VISUAL=vi
 export ZET="$GHREPOS/zet"
+export LAB="$GHREPOS/lab"
 
 # --- history --- #
 
@@ -46,7 +47,7 @@ export PATH=$SCRIPTS:$PATH
 
 # --- cdpath --- #
 
-export CDPATH=".:$GHREPOS:$QDEUX:$DOTFILES:$REPOS"
+export CDPATH=".:$GHREPOS:$QDEUX:$DOTFILES:$REPOS:$ZET:$LAB"
 
 # --- bash shell options --- #
 
