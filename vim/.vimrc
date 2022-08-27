@@ -114,7 +114,7 @@ set tabstop=4
 set shiftwidth=4
 
 " Don't wrap lines
-set nowrap
+" set nowrap
 
 
 "----SEARCH OPTIONS----"
