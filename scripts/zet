@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+_isosec () {
+	local isosec
+	isosec=$(date -u +%y%m%d%H%M%S)
+	echo $isosec
+}
+
+_new_zet() {
+	[[ "$1" == "new" ]] || return 1
+	local dir readme
+	dir="$ZET/$(_isosec)"
+	readme="$dir/README.md"
+	mkdir -p "$dir"
+	touch $readme
+	echo $readme
+}
+
+file=$(_new_zet "$1")
+vim $file
