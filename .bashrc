@@ -40,6 +40,10 @@ if [[ -x /usr/bin/lesspipe ]]; then
   export LESSCLOSE="/usr/bin/lesspipe %s %s";
 fi
 
+# --- path --- #
+
+export PATH=$SCRIPTS:$PATH
+
 # --- cdpath --- #
 
 export CDPATH=".:$GHREPOS:$QDEUX:$DOTFILES:$REPOS"
