@@ -149,7 +149,8 @@ inoremap {<CR> {<CR>}<C-o>O
 nnoremap <esc><esc> :silent! nohls<cr>
 
 " Read template file
-nnoremap ,c :-1read $HOME/.vim/.skeleton/sk.c<CR>3jo
+nnoremap ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
+autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
 
 " Ctrl + j : current word replaced by :registers 0 
 :map <C-j> cw<C-r>0<ESC>
@@ -165,5 +166,5 @@ let g:netrw_winsize = 30
 
 "----CTAGS----"
 
-command! MakeTags silent! !ctags -R . &
+command MakeTags silent !ctags -R . &
 autocmd BufWritePost .c,.h silent! !ctags -R . &
