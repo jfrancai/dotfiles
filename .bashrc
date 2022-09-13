@@ -41,6 +41,10 @@ if [[ -x /usr/bin/lesspipe ]]; then
   export LESSCLOSE="/usr/bin/lesspipe %s %s";
 fi
 
+# --- shell --- #
+
+export SHELL=bash
+
 # --- path --- #
 
 export PATH=$SCRIPTS:$PATH
