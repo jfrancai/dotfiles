@@ -19,7 +19,9 @@ _new_zet() {
 }
 
 zetfolder=$(ls -l $ZET | cut -d " " -f10 | tail -n +2 | head -n -1)
-if [[ $1 == "new" ]]; then
+if [[ $1 == "--help" ]]; then
+	echo "zet [list | open | new]"
+elif [[ $1 == "new" ]]; then
 	file=$(_new_zet "$1")
 	vim $file
 elif [[ $1 == "open" ]]; then
@@ -30,21 +32,21 @@ elif [[ $1 == "open" ]]; then
 	elif [[ $2 == "-p" ]]; then
 		echo "error: bad option args: [1-$(($max - 1))]"
 		exit 1
+	elif [[ $zetfolder =~ (^|[[:space:]])$2($|[[:space:]]) ]] && vim "$ZET/$2/README.md"; then
+		exit 0
 	elif [[ -n $2 ]]; then
-		echo "error: invalid param: [-p]"
+		echo "error: invalid param: [-p | <zetid>]"
 		exit 2
 	fi
 	var=$(ls -l $ZET | cut -d " " -f10 | tail -n$p | head -n1)
-	echo "zet open: \$ZET/$var/README.md"
+	echo "zetid: $var"
 	vim $ZET"/"$var"/README.md"
 elif [[ $1 == "list" ]]; then
-	cout=0
 	for id in $zetfolder
 	do
 		zetcontent=$(cat $ZET/$id/README.md | head -n1)
-		((count=count+1))
-		echo "$id | $zetcontent | $count"
+		echo "$id | $zetcontent"
 	done
 else
-	echo "invalid arg [new | open | list]"
+	echo "error: invalid arg: zet --help"
 fi
