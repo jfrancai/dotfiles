@@ -18,5 +18,24 @@ _new_zet() {
 	echo $readme
 }
 
-file=$(_new_zet "$1")
-vim $file
+if [[ $1 == "new" ]]; then
+	file=$(_new_zet "$1")
+	vim $file
+elif [[ $1 == "open" ]]; then
+	p=2;
+	max=$((1 + $(ls -l $ZET | tail -n +2 | head -n -1 | wc -l)))
+	if [[ $2 == "-p" && -n $3 && $3 -gt 0 && $3 -lt $max ]]; then
+		p=$(($max - $3 + 1))
+	elif [[ $2 == "-p" ]]; then
+		echo "error: bad option args: [1-$(($max - 1))]"
+		exit 1
+	elif [[ -n $2 ]]; then
+		echo "error: invalid param: [-p]"
+		exit 2
+	fi
+	var=$(ls -l $ZET | cut -d " " -f10 | tail -n$p | head -n1)
+	echo "zet open: \$ZET/$var/README.md"
+	vim $ZET"/"$var"/README.md"
+else
+	echo "invalid arg [new | open]"
+fi
