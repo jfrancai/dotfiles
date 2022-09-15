@@ -18,6 +18,7 @@ _new_zet() {
 	echo $readme
 }
 
+zetfolder=$(ls -l $ZET | cut -d " " -f10 | tail -n +2 | head -n -1)
 if [[ $1 == "new" ]]; then
 	file=$(_new_zet "$1")
 	vim $file
@@ -36,6 +37,14 @@ elif [[ $1 == "open" ]]; then
 	var=$(ls -l $ZET | cut -d " " -f10 | tail -n$p | head -n1)
 	echo "zet open: \$ZET/$var/README.md"
 	vim $ZET"/"$var"/README.md"
+elif [[ $1 == "list" ]]; then
+	cout=0
+	for id in $zetfolder
+	do
+		zetcontent=$(cat $ZET/$id/README.md | head -n1)
+		((count=count+1))
+		echo "$id | $zetcontent | $count"
+	done
 else
-	echo "invalid arg [new | open]"
+	echo "invalid arg [new | open | list]"
 fi
