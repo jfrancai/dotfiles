@@ -42,10 +42,14 @@ elif [[ $1 == "open" ]]; then
 	echo "zetid: $var"
 	vim $ZET"/"$var"/README.md"
 elif [[ $1 == "list" ]]; then
+	count=0
+	printf "id | %12s | %20s \n" "zetid" "zettitle"
 	for id in $zetfolder
 	do
-		zetcontent=$(cat $ZET/$id/README.md | head -n1)
-		echo "$id | $zetcontent"
+		((count=$count+1))
+		zettitle=$(cat $ZET/$id/README.md | head -n1 | cut -c 3-)
+		printf "%2d | $id | %.*s\n" "$count" "20" "$zettitle"
+		#echo "$id | $zetcontent"
 	done
 else
 	echo "error: invalid arg: zet --help"
