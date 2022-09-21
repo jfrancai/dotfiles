@@ -150,10 +150,11 @@ nnoremap <esc><esc> :silent! nohls<cr>
 
 " Read template file
 nnoremap ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
-autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddg
+nnoremap ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w
+autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
 
 " Ctrl + j : current word replaced by :registers 0 
-:map <C-j> cw<C-r>0<ESC>
+" :map <C-j> cw<C-r>0<ESC>
 
 " Directory listing style
 let g:netrw_liststyle = 3
