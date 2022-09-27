@@ -18,7 +18,7 @@ _new_zet() {
 	echo $readme
 }
 
-zetfolder=$(ls -l $ZET | cut -d " " -f10 | tail -n +2 | head -n -1)
+zetfolder=$(ls -l $ZET | rev | cut -d " " -f1 | rev | tail -n +2 | head -n -1)
 if [[ $1 == "--help" ]]; then
 	echo "zet [list | open | new]"
 elif [[ $1 == "new" ]]; then
