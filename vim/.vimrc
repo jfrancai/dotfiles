@@ -152,6 +152,7 @@ nnoremap <esc><esc> :silent! nohls<cr>
 nnoremap ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
 nnoremap ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w
 autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
+autocmd BufNewFile .gitignore :0read ~/.vim/.skeleton/gitignore.sk | :normal Gddgg
 
 " Ctrl + j : current word replaced by :registers 0 
 " :map <C-j> cw<C-r>0<ESC>
