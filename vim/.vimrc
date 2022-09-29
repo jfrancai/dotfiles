@@ -153,6 +153,8 @@ nnoremap ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
 nnoremap ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w
 autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
 autocmd BufNewFile .gitignore :0read ~/.vim/.skeleton/gitignore.sk | :normal Gddgg
+autocmd BufNewFile *.cpp :0read ~/.vim/.skeleton/cppclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg2wgUwjgUwgg
+autocmd BufNewFile *.hpp :0read ~/.vim/.skeleton/cpphclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg2wgUwjgUwgg
 
 " Ctrl + j : current word replaced by :registers 0 
 " :map <C-j> cw<C-r>0<ESC>

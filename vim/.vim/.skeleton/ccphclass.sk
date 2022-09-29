@@ -1,0 +1,14 @@
+#ifndef X_HPP
+#define X_HPP
+
+class x
+{
+	public:
+		x(void);
+		~x(void);
+		x(x const &src);
+		x	&operator=(x const &rhs);
+	private:
+};
+
+#endif
