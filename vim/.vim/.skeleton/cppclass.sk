@@ -2,21 +2,21 @@
 
 x::x(void)
 {
-	std::cout << "Default constructor called." << std::endl;
+	std::cout << "x default constructor called." << std::endl;
 
 	return ;
 }
 
 x::~x(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "x destructor called" << std::endl;
 
 	return ;
 }
 
 x::x(x const &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "x copy constructor called" << std::endl;
 	*this = src;
 
 	return ;
@@ -24,7 +24,7 @@ x::x(x const &src)
 
 x &x::operator=(x const &rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "x copy assignment operator called" << std::endl;
 
 	return (*this);
 }
