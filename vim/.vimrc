@@ -173,3 +173,6 @@ let g:netrw_winsize = 30
 
 command MakeTags silent !ctags -R . &
 autocmd BufWritePost .c,.h silent! !ctags -R . &
+
+"---Buf Enter---"
+autocmd BufEnter *.tpp :setlocal filetype=cpp
