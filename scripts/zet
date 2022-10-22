@@ -38,7 +38,7 @@ elif [[ $1 == "open" ]]; then
 		echo "error: invalid param: [-p | <zetid>]"
 		exit 2
 	fi
-	var=$(ls -l $ZET | cut -d " " -f10 | tail -n$p | head -n1)
+	var=$(ls -l $ZET | rev | cut -d " " -f1 | rev | tail -n +2 | head -n -1 | tail -n 1)
 	echo "zetid: $var"
 	vim $ZET"/"$var"/README.md"
 elif [[ $1 == "list" ]]; then
