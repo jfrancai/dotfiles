@@ -151,7 +151,7 @@ nnoremap <esc><esc> :silent! nohls<cr>
 " Read template file
 nnoremap ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
 nnoremap ,cp :-1read $HOME/.vim/.skeleton/cpp.sk<CR>3jo
-nnoremap ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w
+nnoremap ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w Gddgg
 autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
 autocmd BufNewFile .gitignore :0read ~/.vim/.skeleton/gitignore.sk | :normal Gddgg
 autocmd BufNewFile [A-Z]*.cpp :0read ~/.vim/.skeleton/cppclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg
