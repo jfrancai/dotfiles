@@ -1,5 +1,6 @@
 #ifndef X_HPP
 #define X_HPP
+#include <iostream>
 
 class x
 {
