@@ -149,16 +149,13 @@ inoremap {<CR> {<CR>}<C-o>O
 nnoremap <esc><esc> :silent! nohls<cr>
 
 " Read template file
-nnoremap ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
-nnoremap ,cp :-1read $HOME/.vim/.skeleton/cpp.sk<CR>3jo
-nnoremap ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w Gddgg
+nn ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
+nn ,cp :-1read $HOME/.vim/.skeleton/cpp.sk<CR>3jo
+nn ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w Gddgg
 autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
 autocmd BufNewFile .gitignore :0read ~/.vim/.skeleton/gitignore.sk | :normal Gddgg
 autocmd BufNewFile [A-Z]*.cpp :0read ~/.vim/.skeleton/cppclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg
 autocmd BufNewFile [A-Z]*.hpp :0read ~/.vim/.skeleton/cpphclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg2wgUwjgUwgg
-
-" Ctrl + j : current word replaced by :registers 0 
-" :map <C-j> cw<C-r>0<ESC>
 
 " Directory listing style
 let g:netrw_liststyle = 3
