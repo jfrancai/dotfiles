@@ -1,15 +1,14 @@
-NAME :=
+NAME := a.out
 
 CC := c++
-CFLAGS := -Wall -Werror -Wextra -std=c++98 -I utils/
+CFLAGS := -Wall -Werror -Wextra -std=c++98 -I include/
 
-SRCSDIR := srcs/
+SRCDIR := src/
 OBJSDIR := objs/
-UTILSDIR := utils/
 
-SRCS := main.cpp
+SRC := main.cpp
 
-OBJS := $(SRCS:%.cpp=$(OBJSDIR)%.o)
+OBJS := $(SRC:%.cpp=$(OBJSDIR)%.o)
 
 all:
 	make $(NAME)
@@ -17,7 +16,7 @@ all:
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(OBJSDIR)%.o: $(SRCSDIR)%.cpp
+$(OBJSDIR)%.o: $(SRCDIR)%.cpp
 	mkdir -p $(OBJSDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 

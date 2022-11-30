@@ -3,3 +3,5 @@
 	email = jfrancai@student.42.fr
 [core]
 	editor = vim
+[init]
+	defaultBranch = main
