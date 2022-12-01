@@ -152,10 +152,12 @@ nnoremap <esc><esc> :silent! nohls<cr>
 nn ,c :-1read $HOME/.vim/.skeleton/c.sk<CR>3jo
 nn ,cp :-1read $HOME/.vim/.skeleton/cpp.sk<CR>3jo
 nn ,z :-1read $HOME/.vim/.skeleton/zet.sk<CR>w Gddgg
+autocmd BufNewFile *_test.cpp :0read ~/.vim/.skeleton/gtest.sk | :normal Gddgg
 autocmd BufNewFile Makefile :0read ~/.vim/.skeleton/makefile.sk | :normal Gddgg
 autocmd BufNewFile .gitignore :0read ~/.vim/.skeleton/gitignore.sk | :normal Gddgg
 autocmd BufNewFile [A-Z]*.cpp :0read ~/.vim/.skeleton/cppclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg
-autocmd BufNewFile [A-Z]*.hpp :0read ~/.vim/.skeleton/cpphclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg2wgUwjgUwgg
+autocmd BufNewFile [A-Z]*.hpp :0read ~/.vim/.skeleton/hppclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg2wgUwjgUwgg
+autocmd BufNewFile [A-Z]*.tpp :0read ~/.vim/.skeleton/tppclass.sk  | :%s/x/\=expand('%:r')/g | :normal Gddgg
 
 " Directory listing style
 let g:netrw_liststyle = 3

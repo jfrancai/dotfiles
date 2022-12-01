@@ -1,0 +1,18 @@
+#include <gtest/gtest.h>
+
+/*
+ * Test reference : https://google.github.io/googletest/reference/testing.html
+ * Test assertion : https://google.github.io/googletest/reference/assertions.html
+ */
+
+namespace {
+
+	TEST(TestSuiteName, TestName) {
+		/* ... Statements :  ... */
+	}
+
+	TEST_F(TestFixtureName, TestName) {
+		/* ... statements ... */
+	}
+
+}  // namespace

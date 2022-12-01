@@ -1,0 +1,39 @@
+template<typename T>
+x<T>::x(void)
+{
+	std::cout << "x default constructor called" << std::endl;
+	return ;
+}
+
+template<typename T>
+x<T>::x(unsigned int n)
+{
+	std::cout << "x constructor called" << std::endl;
+	return ;
+}
+
+template<typename T>
+x<T>::~x(void)
+{
+	std::cout << "x destructor called" << std::endl;
+
+	return ;
+}
+
+template<typename T>
+x<T>::x(x const &src)
+{
+	std::cout << "x copy constructor called" << std::endl;
+	*this = src;
+
+	return ;
+}
+
+template<typename T>
+x<T>	&x<T>::operator=(x const &rhs)
+{
+	std::cout << "x copy assignment operator called" << std::endl;
+	(void)rhs;
+
+	return (*this);
+}
