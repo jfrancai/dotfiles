@@ -174,4 +174,5 @@ command MakeTags silent !ctags -R . &
 autocmd BufWritePost .c,.h silent! !ctags -R . &
 
 "---Buf Enter---"
+" Highlight text in .tpp files as if were .cpp
 autocmd BufEnter *.tpp :setlocal filetype=cpp
