@@ -2,7 +2,7 @@
 set -e
 
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
-ln -sf "$PWD/.bash_alias" "$HOME/.bash_alias"
+ln -sf "$PWD/.bash_aliases" "$HOME/.bash_aliases"
 ln -sf "$PWD/.ctags" "$HOME/.ctags"
 ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$PWD/scripts" "$HOME/Scripts"
