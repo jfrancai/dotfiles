@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while true; do 
+	power_level=$(cat /sys/class/power_supply/BAT1/capacity)
+
+	if [[ $power_level -gt 95 ]]; then
+
+		# Notification sender
+		notify-send \
+			-i $DOTFILES/scripts/batsaver.deps/battery-logo.png \
+			-u critical \
+			"Battery charged at $power_level%" \
+			'Remove charging cable to save battery life.' 
+	fi
+
+	sleep 5m
+done
+
