@@ -3,16 +3,19 @@
 while true; do 
 	power_level=$(cat /sys/class/power_supply/BAT1/capacity)
 
-	if [[ $power_level -gt 95 ]]; then
+	if [[ $power_level -gt 80 ]]; then
 
 		# Notification sender
 		notify-send \
 			-i $DOTFILES/scripts/batsaver.deps/battery-logo.png \
 			-u critical \
 			"Battery charged at $power_level%" \
-			'Remove charging cable to save battery life.' 
+			"Remove charging cable to save battery life."
+		while [[ $power_level -gt 80 ]]; do
+			power_level=$(cat /sys/class/power_supply/BAT1/capacity)
+		done
 	fi
 
-	sleep 5m
+	sleep 1m
 done
 
