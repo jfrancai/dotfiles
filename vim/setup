@@ -6,5 +6,6 @@ fi
 
 ln -sf "$PWD/.vimrc" "$HOME/.vimrc"
 mkdir "$HOME/.vim/" "$HOME/.vim/autoload"
+ln -sf "$PWD/.vim/scripts" "$HOME/.vim/scripts"
 ln -sf "$PWD/.vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
 ln -sf "$PWD/.vim/.skeleton/" "$HOME/.vim/.skeleton"

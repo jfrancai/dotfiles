@@ -71,6 +71,9 @@ set scrolloff=5
 " Show current line number
 set number
 
+" Relative line number
+set relativenumber
+
 " Hide buffers instead of closing them
 set hidden
 
@@ -176,3 +179,8 @@ autocmd BufWritePost .c,.h silent! !ctags -R . &
 "---Buf Enter---"
 " Highlight text in .tpp files as if were .cpp
 autocmd BufEnter *.tpp :setlocal filetype=cpp
+
+"---Utils---"
+source ~/.vim/scripts/vcomments.vim
+map <C-a> :call Comment()<CR>
+map <C-b> :call Uncomment()<CR>
