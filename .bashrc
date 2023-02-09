@@ -18,8 +18,8 @@ export GHREPOS="$REPOS/github"
 export QDEUX="$REPOS/42"
 export DOTFILES="$GHREPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=vi
+export VISUAL=vi
 export ZET="$GHREPOS/zet"
 export LAB="$GHREPOS/lab"
 
@@ -29,7 +29,7 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 
-set -o nvi
+set -o vi
 # append to the history file, don't overwrite it
 shopt -s histappend
 

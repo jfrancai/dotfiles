@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 mkdir -p ~/.config
 
-ln -sf "$PWD/nvim" "$HOME/.config/nvim"
+ln -sf "$PWD/nvim" "$HOME/.config"
