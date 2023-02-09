@@ -7,7 +7,7 @@ ln -sf "$PWD/.ctags" "$HOME/.ctags"
 ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$PWD/scripts" "$HOME/Scripts"
 
-for i in vim ; do
+for i in vim config; do
   cd $i && ./setup
   cd -
 done

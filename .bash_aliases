@@ -16,3 +16,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias norminette='/home/jfrancai/.local/bin/norminette'
 alias nightmode_on='gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true'
 alias nightmode_off='gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false'
+alias vi='nvim'
