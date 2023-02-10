@@ -15,3 +15,4 @@ end
 
 require('jfrancai.set')
 require('jfrancai.remap')
+require('jfrancai.autocmd')

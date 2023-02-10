@@ -9,6 +9,7 @@ vim.o.hlsearch = true
 vim.o.incsearch = true
 
 -- Make relative line numbers default
+vim.wo.nu = true
 vim.wo.rnu = true
 
 -- Enable mouse mode
