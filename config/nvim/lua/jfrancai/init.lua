@@ -1,4 +1,4 @@
-local packer = require("jfrancai.packer")
+local packer = require('jfrancai.packer')
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
@@ -13,4 +13,5 @@ if packer.is_bootstrap then
   return
 end
 
-require("jfrancai.set")
+require('jfrancai.set')
+require('jfrancai.remap')
