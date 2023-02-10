@@ -2,6 +2,6 @@
 	name = Julien FRANCAIS
 	email = jfrancai@student.42.fr
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = main

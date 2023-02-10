@@ -18,10 +18,11 @@ export GHREPOS="$REPOS/github"
 export QDEUX="$REPOS/42"
 export DOTFILES="$GHREPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
-export EDITOR=vi
-export VISUAL=vi
+export EDITOR=nvim
+export VISUAL=nvim
 export ZET="$GHREPOS/zet"
 export LAB="$GHREPOS/lab"
+export GO=/usr/local/go/bin
 
 # --- history --- #
 
@@ -47,7 +48,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH=$SCRIPTS:$PATH
+export PATH=$SCRIPTS:$PATH:$GO
 
 # --- cdpath --- #
 

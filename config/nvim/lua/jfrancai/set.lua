@@ -46,7 +46,7 @@ vim.o.undofile = true
 vim.o.termguicolors = true
 
 -- Useful to align text.
-vim.o.colorcolumn = "80"
+-- vim.o.colorcolumn = "80"
 
 -- Do not wrap lines
 vim.o.wrap = false
