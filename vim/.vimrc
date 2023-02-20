@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " 42 Header
 Plug '42Paris/42header'
@@ -173,8 +174,10 @@ let g:netrw_winsize = 30
 
 "----CTAGS----"
 
-command MakeTags silent !ctags -R . &
-autocmd BufWritePost .c,.h silent! !ctags -R . &
+set tags=./tags,tags;$HOME
+
+command CreateTags silent !ctags -R .
+autocmd BufWritePost *.c,*.h,*.hpp,*.cpp,*.tpp,*.go,*.py !ctags -R . &
 
 "---Buf Enter---"
 " Highlight text in .tpp files as if were .cpp
