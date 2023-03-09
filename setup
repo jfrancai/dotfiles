@@ -1,13 +1,15 @@
 #!/bin/sh
 set -e
 
-ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
-ln -sf "$PWD/.bash_aliases" "$HOME/.bash_aliases"
-ln -sf "$PWD/.ctags" "$HOME/.ctags"
-ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$PWD/bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/bash_aliases" "$HOME/.bash_aliases"
+ln -sf "$PWD/ctags" "$HOME/.ctags"
+ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
 ln -sf "$PWD/scripts" "$HOME/Scripts"
+ln -sf "$PWD/valgrindrc" "$HOME/.valgrindrc"
+ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
 
-for i in vim config; do
+for i in vimconf; do
   cd $i && ./setup
   cd -
 done
