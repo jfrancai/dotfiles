@@ -16,14 +16,14 @@ call plug#begin('~/.vim/plugged')
 
 " Theming
 Plug 'nanotech/jellybeans.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " 42 Header
-Plug '42Paris/42header'
-let g:user42 = 'jfrancai'
-let g:mail42 = 'jfrancai@student.42.fr'
+" Plug '42Paris/42header'
+" let g:user42 = 'jfrancai'
+" let g:mail42 = 'jfrancai@student.42.fr'
 
 call plug#end()
 
@@ -31,7 +31,6 @@ call plug#end()
 
 " Use Vim settings rather than Vi settings
 set nocompatible
-
 
 "----TEXT RENDERING OPTIONS----"
 
