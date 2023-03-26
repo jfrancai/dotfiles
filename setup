@@ -9,7 +9,7 @@ ln -sf "$PWD/scripts" "$HOME/Scripts"
 ln -sf "$PWD/valgrindrc" "$HOME/.valgrindrc"
 ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
 
-for i in vimconf; do
+for i in vimconf config; do
   cd $i && ./setup
   cd -
 done
