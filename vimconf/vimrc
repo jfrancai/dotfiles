@@ -210,7 +210,6 @@ let g:netrw_winsize = 30
 set tags+=./tags,tags;
 
 command CreateTags silent !ctags -R --c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++ .
-autocmd BufWritePost *.c,*.h,*.hpp,*.cpp,*.tpp,*.go,*.py silent !ctags -R --c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++ .
 
 "---Buf Enter---"
 " Highlight text in .tpp files as if were .cpp
