@@ -15,10 +15,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Theming
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'nanotech/jellybeans.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'rhysd/vim-healthcheck'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
@@ -30,6 +31,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 "----GLOBAL SETTINGS----"
+
+let mapleader = " "
 
 " Use Vim settings rather than Vi settings
 set nocompatible
@@ -74,10 +77,8 @@ set relativenumber
 set hidden
 
 " Color scheme
-if exists('$BASE16_THEME') && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
-	let base16colorspace=256
-	colorscheme base16-$BASE16_THEME
-endif
+let g:jellybeans_background_color_256='NONE' 
+colorscheme jellybeans 
 
 " Display command line's tab complete options as a menu
 set wildmenu
@@ -219,3 +220,31 @@ autocmd BufEnter *.tpp :setlocal filetype=cpp
 source ~/.vim/scripts/vcomments.vim
 map <C-a> :call Comment()<CR>
 map <C-b> :call Uncomment()<CR>
+
+"---LSP---"
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> <leader>gd <plug>(lsp-definition)
+    nmap <buffer> <leader>gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> <leader>gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> <leader>gr <plug>(lsp-references)
+    nmap <buffer> <leader>gi <plug>(lsp-implementation)
+    nmap <buffer> <leader>gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> <leader>[g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> <leader>]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> <leader>K <plug>(lsp-hover)
+    nnoremap <buffer> <expr><leader><c-f> lsp#scroll(+4)
+    nnoremap <buffer> <expr><leader><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
