@@ -8,6 +8,7 @@ ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
 ln -sf "$PWD/scripts" "$HOME/Scripts"
 ln -sf "$PWD/valgrindrc" "$HOME/.valgrindrc"
 ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$PWD/nvim" "$HOME/.config/nvim"
 
 for i in vimconf config; do
   cd $i && ./setup

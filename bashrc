@@ -48,7 +48,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH=$SCRIPTS:$PATH:$GO
+export PATH="$HOME/.local/bin":$SCRIPTS:$PATH:$GO
 
 # --- cdpath --- #
 
@@ -135,4 +135,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
