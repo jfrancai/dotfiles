@@ -80,10 +80,20 @@ _G.packer_plugins = {
     path = "/mnt/nfs/homes/jfrancai/.local/share/nvim/site/pack/packer/start/jellybeans",
     url = "https://github.com/nanotech/jellybeans.vim"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/mnt/nfs/homes/jfrancai/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/mnt/nfs/homes/jfrancai/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/mnt/nfs/homes/jfrancai/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,

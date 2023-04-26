@@ -13,12 +13,21 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({
+	use {
 		'nanotech/jellybeans.vim',
 		as = 'jellybeans',
 		config = function()
 			vim.cmd('colorscheme jellybeans')
 			vim.g.jellybeans_background_color_256 = 'none'
 		end
-	})
+	}
+
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+			ts_update()
+		end
+	}
+	use('nvim-treesitter/playground')
 end)
