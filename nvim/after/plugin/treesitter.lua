@@ -19,5 +19,7 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
 }
--- Highlight the @foo.bar capture group with the "Identifier" highlight group
-vim.api.nvim_set_hl(0, "@variable", { link = "Normal" })
+
+-- Set the color of the 'Identifier' group
+vim.api.nvim_command('hi! link TSError Identifier')
+vim.api.nvim_command('hi! Identifier ctermfg=188 guifg=#e8e8d3 guibg=#151515')
