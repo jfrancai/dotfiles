@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
 	}
 	use { 'nvim-treesitter/playground' }
 	use { 'tpope/vim-fugitive' }
+	use { 'christoomey/vim-tmux-navigator' }
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
