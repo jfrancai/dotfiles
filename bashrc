@@ -23,6 +23,7 @@ export VISUAL=nvim
 export ZET="$GHREPOS/zet"
 export LAB="$GHREPOS/lab"
 export GO=/usr/local/go/bin
+export ZIG="$HOME/zig/"
 
 # --- history --- #
 
@@ -48,7 +49,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH="$HOME/.local/bin":$SCRIPTS:$PATH:$GO
+export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG"
 
 # --- cdpath --- #
 
