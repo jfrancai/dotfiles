@@ -18,8 +18,8 @@ export GHREPOS="$REPOS/github"
 export QDEUX="$REPOS/42"
 export DOTFILES="$GHREPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export ZET="$GHREPOS/zet"
 export LAB="$GHREPOS/lab"
 export GO=/usr/local/go/bin
@@ -48,7 +48,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH=$SCRIPTS:$PATH:$GO
+export PATH="$HOME/.local/bin":$SCRIPTS:$PATH:$GO
 
 # --- cdpath --- #
 
@@ -135,4 +135,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
