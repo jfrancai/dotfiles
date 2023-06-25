@@ -13,14 +13,7 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use {
-		'nanotech/jellybeans.vim',
-		as = 'jellybeans',
-		config = function()
-			vim.cmd('colorscheme jellybeans')
-			vim.g.jellybeans_background_color_256 = 'none'
-		end
-	}
+  use 'tomasiser/vim-code-dark'
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -58,11 +51,6 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'}
 		}
 	}
-	-- install without yarn or npm
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function() vim.fn["mkdp#util#install"]() end,
-	})
 
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)
