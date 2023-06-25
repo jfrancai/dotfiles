@@ -22,7 +22,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export ZET="$GHREPOS/zet"
 export LAB="$GHREPOS/lab"
-export GO=/usr/local/go/bin
+export GO="/usr/local/go/bin"
 export ZIG="$HOME/zig/"
 
 # --- history --- #
@@ -53,7 +53,7 @@ export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG"
 
 # --- cdpath --- #
 
-export CDPATH=".:$GHREPOS:$QDEUX:$DOTFILES:$REPOS:$ZET:$LAB"
+export CDPATH=".:$GHREPOS:$QDEUX:$DOTFILES:$REPOS:$ZET:$LAB:$HOME"
 
 # --- bash shell options --- #
 
