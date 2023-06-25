@@ -14,15 +14,14 @@ esac
 export USER="${USER:-$(whoami)}"
 export HOME="${HOME:-"/home/$USER"}"
 export REPOS="$HOME/repos"
-export GHREPOS="$REPOS/github"
 export QDEUX="$REPOS/42"
-export DOTFILES="$GHREPOS/dotfiles"
+export DOTFILES="$REPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
 export EDITOR=nvim
 export VISUAL=nvim
-export ZET="$GHREPOS/zet"
-export LAB="$GHREPOS/lab"
-export GO="/usr/local/go/bin"
+export ZET="$REPOS/zet"
+export LAB="$REPOS/lab"
+export GO=/usr/local/go/bin
 export ZIG="$HOME/zig/"
 
 # --- history --- #
@@ -49,7 +48,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG"
+export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG":"$HOME/.fly/bin"
 
 # --- cdpath --- #
 
