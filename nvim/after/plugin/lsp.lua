@@ -51,4 +51,15 @@ lsp.set_preferences({
 	}
 })
 
+-- add null_ls so my lsp is not doing the vim.lsp.buffer.format() function call
+lsp.format_on_save({
+    format_opts = {
+        async = false,
+        timeout_ms = 10000,
+    },
+    server = {
+        ['null_ls'] = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
+    }
+})
+
 lsp.setup()

@@ -25,3 +25,5 @@ vim.opt.scrolloff = 10
 vim.opt.showmode = false
 vim.opt.ruler =  false
 vim.opt.laststatus = 0
+
+vim.opt.switchbuf = "useopen"
