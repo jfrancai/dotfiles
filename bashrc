@@ -23,6 +23,7 @@ export ZET="$REPOS/zet"
 export LAB="$REPOS/lab"
 export GO=/usr/local/go/bin
 export ZIG="$HOME/zig/"
+export EMCC="$HOME/repos/emsdk/upstream/emscripten/"
 
 # --- history --- #
 
@@ -48,7 +49,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG":"$HOME/.fly/bin"
+export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG":"$HOME/.fly/bin":"$EMCC"
 
 # --- cdpath --- #
 
