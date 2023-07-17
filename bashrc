@@ -22,6 +22,7 @@ export VISUAL=nvim
 export ZET="$REPOS/zet"
 export LAB="$REPOS/lab"
 export GO=/usr/local/go/bin
+export GOPATH=$HOME/go
 export ZIG="$HOME/zig/"
 export EMCC="$HOME/emsdk/upstream/emscripten/"
 
@@ -49,7 +50,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$ZIG":"$HOME/.fly/bin":"$EMCC"
+export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$GOPATH":"$GOPATH/bin":"$ZIG":"$HOME/.fly/bin":"$EMCC"
 
 # --- cdpath --- #
 
