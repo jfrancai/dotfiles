@@ -1,0 +1,133 @@
+#!/bin/bash
+
+Reset='\033[0m'
+Green='\033[0;32m'
+MyUser=jfrancai
+
+snaps_installed=$(snap list | awk '{print $1}')
+
+snap_install() {
+	required_pkg="$1"
+	pkg_ok=$(echo "$snaps_installed" | grep "^$required_pkg")
+	print "checking for $required_pkg: ${Green}$pkg_ok${Reset}"
+	if [ "" = "$pkg_ok" ]; then
+		print "no $required_pkg. setting up $required_pkg."
+		sudo snap install $required_pkg
+	fi
+}
+
+print() {
+	echo -e $1 
+}
+
+require_install() {
+	local required_pkg="$1"
+	local pkg_ok=$(dpkg-query --show --showformat='${status}\n' $required_pkg|grep "install ok installed")
+	print "checking for $required_pkg: ${Green}$pkg_ok${Reset}"
+	if [ "" = "$pkg_ok" ]; then
+		print "no $required_pkg. setting up $required_pkg."
+		return 1
+	fi
+	return 0
+}
+
+apt_install() {
+	local pkg="$1"
+	require_install $pkg
+	if [ $? == '1' ]
+	then
+		sudo apt-get --yes install $pkg
+	fi
+}
+
+ghcli_deps() {
+	if [ -f "/usr/share/keyrings/githubcli-archive-keyring.gpg" ]
+	then
+		print "${Green}gh CLI dependencies installed.${Reset}"
+	else
+		print "installing gh CLI dependencies..."
+		type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+		curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+			&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+			&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+			&& sudo apt update
+	fi
+}
+
+gitconfig() {
+	read -p "Auth to Github? (Y/n)" -n 1 -r
+	echo    
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+		gh auth login
+	fi
+	read -p "Change git email and name?" -n 1 -r
+	echo    
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+		read -p "git email?"
+		git config --global user.email "$REPLY"
+		read -p "git name?"
+		git config --global user.name "$REPLY"
+	fi
+
+}
+
+ghcli_install() {
+	local pkg="gh"
+	require_install $pkg
+	if [ $? == '1' ]
+	then
+		ghcli_deps
+		apt_install $pkg
+		gitconfig
+	fi
+}
+
+git_clone() {
+	repo="$1"
+	msg="checking for $repo"
+	if [ -d "/home/jfrancai/repos/$repo" ]
+	then
+		print "$msg: ${Green}$repo already installed.${Reset}"
+	else
+		print "no $repo repo. setting up $repo repo."
+		git clone "git@github.com:jfrancai/${repo}.git" "/home/$USER/repos/$repo"
+	fi
+}
+
+make_dir() {
+	dir="/home/$USER/$1"
+	msg="checking for $dir directory"
+	if [ -d "$dir" ]
+	then
+		print "$msg: ${Green}$dir already exist${Reset}"
+	else
+		print "no $dir directory. setting up $dir."
+		mkdir -vp /home/$USER/repos/
+	fi
+}
+
+# Utils
+apt_install "build-essential"
+apt_install "vim"
+apt_install "git"
+apt_install "curl"
+apt_install "tmux"
+apt_install "exuberant-ctags"
+apt_install "valgrind"
+
+# GitHub CLI
+ghcli_install
+
+# Personal repositories
+make_dir "repos"
+git_clone "dotfiles"
+
+# GUI
+read -p "Install GUI package? (Y/n)" -n 1 -r
+echo    
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	snap_install "discord"
+fi
