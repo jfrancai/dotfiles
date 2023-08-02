@@ -17,5 +17,5 @@ alias norminette='/home/jfrancai/.local/bin/norminette'
 alias nightmode_on='gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true'
 alias nightmode_off='gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false'
 
-alias vi='nvim'
-alias vim='nvim'
+alias vi='vim'
+alias nv='nvim'

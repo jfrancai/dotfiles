@@ -1,0 +1,11 @@
+# backup linux config
+dconf dump / > full-backup
+
+# backup gnome config only
+dconf dump /org/gnom > dconf-backupb
+
+# Full Restore Command
+dconf load / < full-backup
+
+# Gnome-only Restore Command
+dconf load /org/gnome < gnome-backup
