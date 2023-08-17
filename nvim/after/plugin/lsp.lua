@@ -30,6 +30,12 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
 	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.fn.sign_define('DiagnosticSignError', { text = '🦆', texthl = 'DiagnosticSignError' })
+  vim.fn.sign_define('DiagnosticSignWarn', { text = '⚠️', texthl = 'DiagnosticSignWarn' })
+  vim.fn.sign_define('DiagnosticSignInfo', { text = 'ℹ️', texthl = 'DiagnosticSignInfo' })
+  vim.fn.sign_define('DiagnosticSignHint', { text = '🤔', texthl = 'DiagnosticSignHint' })
+  vim.diagnostic.config({virtual_text = false})
+  -- vim.diagnostic.config({virtual_text = false})
 end)
 
 lsp.set_server_config({
@@ -40,16 +46,6 @@ lsp.set_server_config({
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-lsp.set_preferences({
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = 'E',
-		warn = 'W',
-		hint = 'H',
-		info = 'I'
-	}
-})
 
 -- add null_ls so my lsp is not doing the vim.lsp.buffer.format() function call
 lsp.format_on_save({
