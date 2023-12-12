@@ -25,6 +25,10 @@ export GO=/usr/local/go/bin
 export GOPATH=$HOME/go
 export ZIG="$HOME/zig/"
 export EMCC="$HOME/emsdk/upstream/emscripten/"
+export FOUNDRYUP="$HOME/.foundry/bin/"
+
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
 
 # --- history --- #
 
@@ -50,7 +54,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$GOPATH":"$GOPATH/bin":"$ZIG":"$HOME/.fly/bin":"$EMCC"
+export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$GOPATH":"$GOPATH/bin":"$ZIG":"$HOME/.fly/bin":"$EMCC":"$FOUNDRYUP"
 
 # --- cdpath --- #
 
@@ -145,3 +149,12 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="/home/jfrancai/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
