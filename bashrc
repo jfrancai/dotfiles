@@ -107,9 +107,9 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;32m\]➜ \[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \[\033[33m\]$(parse_git_branch)\[\033[00m\] "
+    PS1='\[\e[0;\[\033[01;32m\]➜ \[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \[\033[33m\]$(parse_git_branch)\[\033[00m\] '
 else
-    PS1="\[\033[01;32m\]➜  \w $(parse_git_branch) "
+    PS1='\[\e[0;\[\033[01;32m\]➜  \w $(parse_git_branch) '
 fi
 unset color_prompt force_color_prompt
 
