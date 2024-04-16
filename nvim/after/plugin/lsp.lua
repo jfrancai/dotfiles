@@ -4,6 +4,12 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
+  'eslint',
+  'rust_analyzer',
+  'cairo_ls',
+  'gopls',
+  'html',
+  'tailwindcss',
 })
 
 -- Fix Undefined global 'vim'
@@ -20,18 +26,20 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
-	local opts = {buffer = bufnr, remap = false}
+  local opts = {buffer = bufnr, remap = false}
 
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-	vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+  vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
   vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   vim.fn.sign_define('DiagnosticSignError', { text = '🦆', texthl = 'DiagnosticSignError' })
   vim.fn.sign_define('DiagnosticSignWarn', { text = '⚠️', texthl = 'DiagnosticSignWarn' })
   vim.fn.sign_define('DiagnosticSignInfo', { text = 'ℹ️', texthl = 'DiagnosticSignInfo' })
@@ -39,6 +47,18 @@ lsp.on_attach(function(client, bufnr)
   vim.diagnostic.config({virtual_text = false})
   -- vim.diagnostic.config({virtual_text = false})
 end)
+
+lsp.use('solidity', {
+  cmd = { 'nomicfoundation-solidity-language-server', '--stdio' },
+  filetypes = { 'solidity' },
+  root_dir = require("lspconfig.util").root_pattern("hardhat.config.js", "hardhat.config.ts", "foundry.toml",
+  "remappings.txt", "truffle.js", "truffle-config.js", "ape-config.yaml", ".git", "package.json"),
+  single_file_support = true,
+})
+
+require('lspconfig').cairo_ls.setup({
+  cmd = { 'scarb', 'cairo-language-server' },
+})
 
 lsp.set_server_config({
   on_init = function(client)
@@ -51,13 +71,14 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 -- add null_ls so my lsp is not doing the vim.lsp.buffer.format() function call
 lsp.format_on_save({
-    format_opts = {
-        async = false,
-        timeout_ms = 10000,
-    },
-    server = {
-        ['null_ls'] = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
-    }
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  server = {
+    ['null_ls'] = { "solidity", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
+  }
 })
 
 lsp.setup()
+
