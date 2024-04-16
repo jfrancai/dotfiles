@@ -26,6 +26,7 @@ export GOPATH=$HOME/go
 export ZIG="$HOME/zig/"
 export EMCC="$HOME/emsdk/upstream/emscripten/"
 export FOUNDRYUP="$HOME/.foundry/bin/"
+export HUFF="$HOME/.huff/bin/"
 
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
@@ -54,7 +55,7 @@ export SHELL=bash
 
 # --- path --- #
 
-export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$GOPATH":"$GOPATH/bin":"$ZIG":"$HOME/.fly/bin":"$EMCC":"$FOUNDRYUP"
+export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$GOPATH":"$GOPATH/bin":"$ZIG":"$HOME/.fly/bin":"$EMCC":"$FOUNDRYUP":"$HUFF"
 
 # --- cdpath --- #
 
