@@ -27,6 +27,7 @@ export ZIG="$HOME/zig/"
 export EMCC="$HOME/emsdk/upstream/emscripten/"
 export FOUNDRYUP="$HOME/.foundry/bin/"
 export HUFF="$HOME/.huff/bin/"
+export PYENV_ROOT="$HOME/.pyenv"
 
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
@@ -56,6 +57,8 @@ export SHELL=bash
 # --- path --- #
 
 export PATH="$HOME/.local/bin":"$SCRIPTS":"$PATH":"$GO":"$GOPATH":"$GOPATH/bin":"$ZIG":"$HOME/.fly/bin":"$EMCC":"$FOUNDRYUP":"$HUFF"
+
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 # --- cdpath --- #
 
@@ -158,3 +161,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
